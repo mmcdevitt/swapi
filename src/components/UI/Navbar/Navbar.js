@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Container from "../Container";
+import Flex from "../Flex";
 
 const Header = styled.header`
   background: #fff;
@@ -22,7 +23,10 @@ const Navbar = props => {
   return (
     <Header>
       <Container>
-        <div className="logo">SWAPI</div>
+        <Flex vAlign="center" jContent="space-between" height="inherit">
+          <div className="logo">SWAPI</div>
+          <div>Profile</div>
+        </Flex>
       </Container>
     </Header>
   );
