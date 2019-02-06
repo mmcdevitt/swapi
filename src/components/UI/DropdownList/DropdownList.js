@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import styled from "styled-components";
+import UnorderedList from "../UnorderedList";
 
 class DropdownList extends Component {
   constructor(props) {
@@ -8,15 +10,17 @@ class DropdownList extends Component {
     };
   }
 
+  toggle = () => {
+    this.setState({
+      showDropdown: !this.state.showDropdown
+    });
+  };
+
   render() {
     return (
       <div>
-        <button>Select Character</button>
-        <ul>
-          {this.props.data.map(character => {
-            return <li key={character.name}>{character.name}</li>;
-          })}
-        </ul>
+        <button onClick={this.toggle}>Select Character</button>
+        <UnorderedList show={this.state.showDropdown} data={this.props.data} />
       </div>
     );
   }
