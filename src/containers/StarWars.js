@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import SelectFilmsContainer from "./SelectFilmsContainer";
 import * as actions from "../actions/characters";
 
 class StarWars extends Component {
@@ -8,7 +9,11 @@ class StarWars extends Component {
   }
 
   render() {
-    return <div>StarWars</div>;
+    return (
+      <div>
+        <SelectFilmsContainer />
+      </div>
+    );
   }
 }
 
