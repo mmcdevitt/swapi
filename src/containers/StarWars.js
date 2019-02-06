@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import SelectFilmsContainer from "./SelectFilmsContainer";
 import MoviesContainer from "./MoviesContainer";
 import * as actions from "../actions/characters";
+import ErrorBoundary from "../components/HOC/ErrorBoundary";
 
 class StarWars extends Component {
   componentDidMount() {
@@ -12,7 +13,9 @@ class StarWars extends Component {
   render() {
     return (
       <div>
-        <SelectFilmsContainer />
+        <ErrorBoundary>
+          <SelectFilmsContainer />
+        </ErrorBoundary>
         <MoviesContainer />
       </div>
     );
