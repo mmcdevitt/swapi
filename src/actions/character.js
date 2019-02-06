@@ -1,4 +1,4 @@
-import axios from "axios";
+import SWAPI from "../lib/api";
 
 export const FETCH_CHARACTER_FILMS = "FETCH_CHARACTER_FILMS";
 export const FETCH_CHARACTER_FILMS_SUCCESS = "FETCH_CHARACTER_FILMS_SUCCESS";
@@ -12,8 +12,8 @@ export const selectCharacter = character => {
     });
 
     try {
-      const { data } = await axios.get(character.url);
-      const films = await axios.all(data.films.map(film => axios.get(film)));
+      const { data } = await SWAPI.getCharacter(character.url);
+      const films = await SWAPI.getFilms(data.films);
 
       dispatch({
         type: FETCH_CHARACTER_FILMS_SUCCESS,
