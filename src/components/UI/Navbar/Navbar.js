@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Container from "../Container";
 
 const Header = styled.header`
   background: #fff;
@@ -20,7 +21,9 @@ const Header = styled.header`
 const Navbar = props => {
   return (
     <Header>
-      <div className="logo">SWAPI</div>
+      <Container>
+        <div className="logo">SWAPI</div>
+      </Container>
     </Header>
   );
 };
