@@ -20,11 +20,12 @@ class MoviesContainer extends Component {
 }
 
 function mapStateToProps(state) {
-  const { films, loading } = state.selectedCharacter;
+  const { films, loading, data } = state.selectedCharacter;
 
   return {
     films,
-    loading
+    loading,
+    name: data.name
   };
 }
 

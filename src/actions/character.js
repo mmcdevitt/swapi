@@ -8,7 +8,8 @@ export const RESET_FETCH_CHARACTER_ERROR = "RESET_FETCH_CHARACTER_ERROR";
 export const selectCharacter = character => {
   return async dispatch => {
     dispatch({
-      type: FETCH_CHARACTER_FILMS
+      type: FETCH_CHARACTER_FILMS,
+      payload: character
     });
 
     try {

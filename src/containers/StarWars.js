@@ -5,6 +5,7 @@ import MoviesContainer from "./MoviesContainer";
 import * as actions from "../actions/characters";
 import ErrorBoundary from "../components/HOC/ErrorBoundary";
 import Layout from "../components/UI/Layout";
+import SelectedCharacter from "../components/SelectedCharacter";
 
 class StarWars extends Component {
   componentDidMount() {
@@ -14,9 +15,11 @@ class StarWars extends Component {
   render() {
     return (
       <Layout>
-        <ErrorBoundary>
-          <SelectFilmsContainer />
-        </ErrorBoundary>
+        <SelectedCharacter>
+          <ErrorBoundary>
+            <SelectFilmsContainer />
+          </ErrorBoundary>
+        </SelectedCharacter>
         <MoviesContainer />
       </Layout>
     );
