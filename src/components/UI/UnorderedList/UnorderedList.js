@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { kebabCase } from "lodash";
 import ListItem from "./ListItem";
 
 const UnorderedListWrapper = styled.ul`
@@ -11,7 +12,20 @@ class UnorderedList extends Component {
     const { data } = this.props;
 
     return data.map(item => {
-      return <ListItem key={item.name}>{item.name}</ListItem>;
+      return (
+        <ListItem key={item.name}>
+          <label>
+            <input
+              type="radio"
+              onChange={e => this.props.handleChange(e)}
+              value={item.name}
+              name="character-name"
+              id={`${kebabCase(item.name)}-radio`}
+            />
+            {item.name}
+          </label>
+        </ListItem>
+      );
     });
   }
 
