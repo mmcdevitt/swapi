@@ -1,6 +1,11 @@
-import styled, { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
+  * {
+    padding: 0; 
+    margin: 0;
+  }
+  
   html {
     box-sizing: border-box;
     font-size: 10px;
@@ -11,9 +16,9 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    padding: 0; 
-    margin: 0;
     font-size: 1.4rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     font-family: "Montserrat", sans-serif;
   }
 
