@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+  - node
+cache:
+  directories:
+    - node_modules
+dist: trusty
+sudo: false
+install:
+  - npm ci
+before_deploy:
+  - npm run build
+  - rm -rf node_modules
+deploy:
+  skip_cleanup: true
+  provider: heroku
+  app: mcdevitt-swapi
+  api_key:
+    secure: "KEn/2n2gAE+fXaZmYKgqFeNnQ3137t0DNrLuaJ0NUY5lECX4eCSg9TvoLTgpm82C3K3yySLrmfua9SVjldWxToWnXYlHozhTtKGCkVNpqEsPrQsuwjxsXlVfdeFl/rUfIdGzcG2qct6knxDW1xUKax1otA/+YyQsMoaFMjKrsQ7c3RtinwkO48meZzlYX1s5pg+l/eWfmTeNXkb0Qs+soOnJce7yf7lEVdQizgjo3q0jtDq84rCj0pBCtn+yIItTNmy1M2Mo5e61MkrmqxxDp7GmbYGeto4dx+TvenYngTb1bUhGoj04iE3m9ROEJBOfgeZ2u30hd1WmhFlGdTw7jFDRS74vAY5UqmgZKf4rcWjTsNvZTmczD757R/SmUcnuCco3JExepUBrrdqA1Bx+B0HiWclddH70fCVUEo/rB3mL9J5e5flAVDC6CyIwEV4Syie6uDEQ7GlMrNrt+niYlm2unnthJQKSrbGWu7a8TO/to0vq2PW6drHuHT5nYNNnIQazBU1ZL2kITa5lALJMiKFyvNecQ+cI5uinvkwkT2z5gz4hkvHa53tkXBeT/2OGaY3+EVAptGpslmQNx2g2QLiUBjK2LPm0ntVvd8bBgjr48eKK4heb3bJKmnN7gh1PlvkfntsgBowGqOBmawXYAVZWHQjmf8eLyKlgfy9yIfQ="
