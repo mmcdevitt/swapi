@@ -1,12 +1,13 @@
 import React, { Component } from "react";
+import RootProvider from "./RootProvider";
 import StarWars from "./containers/StarWars";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <RootProvider>
         <StarWars />
-      </div>
+      </RootProvider>
     );
   }
 }
