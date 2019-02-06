@@ -10,5 +10,25 @@ export const selectCharacter = character => {
     dispatch({
       type: FETCH_CHARACTER_FILMS
     });
+
+    try {
+      const { data } = await axios.get(character.url);
+      const films = await axios.all(data.films.map(film => axios.get(film)));
+
+      dispatch({
+        type: FETCH_CHARACTER_FILMS_SUCCESS,
+        payload: {
+          data: character,
+          films: films.map(film => film.data)
+        }
+      });
+    } catch ({ message }) {
+      dispatch({
+        type: FETCH_CHARACTER_FILMS_FAILED,
+        payload: {
+          error: message
+        }
+      });
+    }
   };
 };

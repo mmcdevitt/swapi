@@ -11,7 +11,7 @@ class SelectFilmsContainer extends Component {
       return character.name === e.target.value;
     });
 
-    this.props.selectCharacter();
+    this.props.selectCharacter(character);
   };
 
   render() {
