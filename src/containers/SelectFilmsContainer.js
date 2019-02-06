@@ -1,12 +1,23 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import DropdownList from "../components/UI/DropdownList";
+import * as actions from "../actions/character";
 
 class SelectFilmsContainer extends Component {
+  handleChange = async e => {
+    const { characters } = this.props;
+
+    const character = characters.find(character => {
+      return character.name === e.target.value;
+    });
+
+    this.props.selectCharacter();
+  };
+
   render() {
     const { characters } = this.props;
 
-    return <DropdownList data={characters} />;
+    return <DropdownList data={characters} handleChange={this.handleChange} />;
   }
 }
 
@@ -20,5 +31,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  null
+  actions
 )(SelectFilmsContainer);

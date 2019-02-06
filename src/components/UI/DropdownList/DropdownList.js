@@ -16,16 +16,12 @@ class DropdownList extends Component {
     });
   };
 
-  handleChange = e => {
-    console.log(e.target.value);
-  };
-
   render() {
     return (
       <div>
         <button onClick={this.toggle}>Select Character</button>
         <UnorderedList
-          handleChange={this.handleChange}
+          handleChange={this.props.handleChange}
           show={this.state.showDropdown}
           data={this.props.data}
         />

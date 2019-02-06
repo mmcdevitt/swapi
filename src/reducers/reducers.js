@@ -1,5 +1,7 @@
 import characters from "./charactersReducer";
+import character from "./characterReducer";
 
 export default {
-  characters
+  characters,
+  selectedCharacter: character
 };
