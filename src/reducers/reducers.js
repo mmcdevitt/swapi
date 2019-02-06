@@ -1,1 +1,5 @@
-export default {};
+import characters from "./charactersReducer";
+
+export default {
+  characters
+};
