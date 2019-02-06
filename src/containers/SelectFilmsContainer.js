@@ -15,7 +15,9 @@ class SelectFilmsContainer extends Component {
   };
 
   render() {
-    const { characters } = this.props;
+    const { characters, error } = this.props;
+
+    if (error) throw new Error();
 
     return <DropdownList data={characters} handleChange={this.handleChange} />;
   }
@@ -23,9 +25,11 @@ class SelectFilmsContainer extends Component {
 
 function mapStateToProps(state) {
   const { collection } = state.characters;
+  const { error } = state.selectedCharacter;
 
   return {
-    characters: collection
+    characters: collection,
+    error
   };
 }
 
