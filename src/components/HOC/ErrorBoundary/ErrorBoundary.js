@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as actions from "../../../actions/character";
 
 class ErrorBoundary extends Component {
   constructor(props) {
@@ -16,11 +18,30 @@ class ErrorBoundary extends Component {
     });
   }
 
+  reset = () => {
+    this.props.resetError();
+    this.setState({
+      hasError: false,
+      errorMessage: ""
+    });
+  };
+
   render() {
     return (
-      <div>{this.state.hasError ? <div>Error</div> : this.props.children}</div>
+      <div>
+        {this.state.hasError ? (
+          <div>
+            Error <button onClick={this.reset}>Ok</button>
+          </div>
+        ) : (
+          this.props.children
+        )}
+      </div>
     );
   }
 }
 
-export default ErrorBoundary;
+export default connect(
+  null,
+  actions
+)(ErrorBoundary);

@@ -33,6 +33,12 @@ export default (state = initialState, action) => {
         loading: false,
         error: action.payload.error
       };
+    case RESET_FETCH_CHARACTER_ERROR:
+      return {
+        ...state,
+        loading: false,
+        error: ""
+      };
     default:
       return state;
   }

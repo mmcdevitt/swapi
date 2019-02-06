@@ -32,3 +32,11 @@ export const selectCharacter = character => {
     }
   };
 };
+
+export const resetError = () => {
+  return dispatch => {
+    dispatch({
+      type: RESET_FETCH_CHARACTER_ERROR
+    });
+  };
+};
