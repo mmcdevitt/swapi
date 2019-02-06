@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import styled from "styled-components";
 import UnorderedList from "../UnorderedList";
 
 class DropdownList extends Component {
