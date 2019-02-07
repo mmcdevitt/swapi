@@ -4,11 +4,12 @@ const GlobalStyle = createGlobalStyle`
   * {
     padding: 0; 
     margin: 0;
+    outline: none;
   }
-  
+
   html {
     box-sizing: border-box;
-    font-size: 10px;
+    font-size: 14px;
   }
 
   *, *:before, *:after {
@@ -16,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-size: 1.4rem;
+    font-size: 1rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-family: "Montserrat", sans-serif;

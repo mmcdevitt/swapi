@@ -28,7 +28,7 @@ class ErrorBoundary extends Component {
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         {this.state.hasError ? (
           <div>
             Error <button onClick={this.reset}>Ok</button>
@@ -36,7 +36,7 @@ class ErrorBoundary extends Component {
         ) : (
           this.props.children
         )}
-      </div>
+      </React.Fragment>
     );
   }
 }
