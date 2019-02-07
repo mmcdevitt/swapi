@@ -21,7 +21,7 @@ const Header = styled.header`
 
 const Navbar = props => {
   return (
-    <Header>
+    <Header className="navbar">
       <Container>
         <Flex vAlign="center" jContent="space-between" height="inherit">
           <div className="logo">SWAPI</div>

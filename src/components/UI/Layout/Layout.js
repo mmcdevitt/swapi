@@ -2,21 +2,20 @@ import React from "react";
 import styled from "styled-components";
 import GlobalStyle from "../GlobalStyle";
 import Navbar from "../Navbar";
+import Footer from "../Footer";
 
-const LayoutWrapper = styled.div`
-  .content {
-    padding-top: 70px;
-  }
+const MainContent = styled.div`
+  padding-top: 70px;
 `;
 
 const Layout = props => {
   return (
-    <LayoutWrapper>
+    <React.Fragment>
       <GlobalStyle />
       <Navbar />
-      <div className="content">{props.children}</div>
-      <footer>footer</footer>
-    </LayoutWrapper>
+      <MainContent className="content">{props.children}</MainContent>
+      <Footer />
+    </React.Fragment>
   );
 };
 

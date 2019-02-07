@@ -13,7 +13,10 @@ const CharacterName = props => {
   const { invisible } = props;
 
   return (
-    <CharacterNameWrapper visibility={invisible}>
+    <CharacterNameWrapper
+      className="selected-character-name"
+      visibility={invisible}
+    >
       <h1>{props.name}</h1>
     </CharacterNameWrapper>
   );

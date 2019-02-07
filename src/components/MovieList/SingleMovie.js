@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { kebabCase } from "lodash";
 import styled from "styled-components";
 
