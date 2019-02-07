@@ -32,9 +32,14 @@ class DropdownList extends Component {
     });
   };
 
+  handleChange = e => {
+    this.toggle();
+    this.props.handleChange(e);
+  };
+
   render() {
     return (
-      <DropdownListWrapper>
+      <DropdownListWrapper className="dropdown">
         <Button
           id="select-character-dropdown"
           block
@@ -46,7 +51,7 @@ class DropdownList extends Component {
           </Flex>
         </Button>
         <UnorderedList
-          handleChange={this.props.handleChange}
+          handleChange={this.handleChange}
           show={this.state.visible}
           data={this.props.data}
         />

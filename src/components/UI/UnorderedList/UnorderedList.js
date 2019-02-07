@@ -29,7 +29,7 @@ class UnorderedList extends Component {
 
     return data.map(item => {
       return (
-        <ListItem key={item.name}>
+        <ListItem key={item.name} className="character-list-item">
           <label className="btn btn-default btn-block no-radius left">
             <input
               type="radio"
@@ -49,7 +49,7 @@ class UnorderedList extends Component {
     const { show } = this.props;
 
     return (
-      <UnorderedListWrapper show={show}>
+      <UnorderedListWrapper show={show} className="character-list">
         {this.renderList()}
       </UnorderedListWrapper>
     );

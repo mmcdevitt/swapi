@@ -23,7 +23,7 @@ class SelectedCharacter extends Component {
     )}.jpg)`;
 
     return (
-      <Background image={bgImage}>
+      <Background image={bgImage} className="hero">
         <Container>
           <Flex direction="column" height="inherit">
             <Flex shortHand="1 1 auto">
