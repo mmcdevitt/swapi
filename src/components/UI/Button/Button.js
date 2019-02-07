@@ -5,7 +5,7 @@ import "./Button.css";
 
 class Button extends React.Component {
   classes() {
-    const { large, className, block, left, open } = this.props;
+    const { large, className, size, left, open } = this.props;
 
     return cs(
       "multiselect",
@@ -13,7 +13,7 @@ class Button extends React.Component {
       "btn",
       "btn-default",
       large ? "btn-lg" : null,
-      block ? "btn-block" : null,
+      size ? `btn-${size}` : null,
       className,
       { left },
       { open }

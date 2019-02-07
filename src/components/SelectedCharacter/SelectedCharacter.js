@@ -27,7 +27,7 @@ class SelectedCharacter extends Component {
         <Container>
           <Flex direction="column" height="inherit">
             <Flex shortHand="1 1 auto">
-              <CharacterName name={character.name} invisible />
+              <CharacterName name={character.name} hide />
             </Flex>
             <Flex jContent="center">{this.props.children}</Flex>
             <Flex shortHand="1 1 auto" vAlign="flex-end">

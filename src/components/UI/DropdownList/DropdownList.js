@@ -42,7 +42,7 @@ class DropdownList extends Component {
       <DropdownListWrapper className="dropdown">
         <Button
           id="select-character-dropdown"
-          block
+          size="block"
           onClick={this.toggle}
           open={this.state.visible}
         >
