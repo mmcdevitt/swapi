@@ -4,6 +4,8 @@ import SelectFilmsContainer from "./SelectFilmsContainer";
 import MoviesContainer from "./MoviesContainer";
 import * as actions from "../actions/characters";
 import ErrorBoundary from "../components/HOC/ErrorBoundary";
+import Layout from "../components/UI/Layout";
+import SelectedCharacter from "../components/SelectedCharacter";
 
 class StarWars extends Component {
   componentDidMount() {
@@ -12,12 +14,14 @@ class StarWars extends Component {
 
   render() {
     return (
-      <div>
-        <ErrorBoundary>
-          <SelectFilmsContainer />
-        </ErrorBoundary>
+      <Layout>
+        <SelectedCharacter>
+          <ErrorBoundary>
+            <SelectFilmsContainer />
+          </ErrorBoundary>
+        </SelectedCharacter>
         <MoviesContainer />
-      </div>
+      </Layout>
     );
   }
 }

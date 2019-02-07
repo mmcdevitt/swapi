@@ -17,7 +17,8 @@ export default (state = initialState, action) => {
     case FETCH_CHARACTER_FILMS:
       return {
         ...state,
-        loading: true
+        loading: true,
+        data: action.payload
       };
     case FETCH_CHARACTER_FILMS_SUCCESS:
       return {
@@ -31,7 +32,8 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        error: action.payload.error
+        error: action.payload.error,
+        films: []
       };
     case RESET_FETCH_CHARACTER_ERROR:
       return {

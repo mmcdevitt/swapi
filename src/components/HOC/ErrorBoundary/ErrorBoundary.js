@@ -1,10 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
+import ModalLauncher from "../../UI/Modal/ModalLauncher";
+import Button from "../../UI/Button";
+import Flex from "../../UI/Flex";
 import * as actions from "../../../actions/character";
 
-class ErrorBoundary extends Component {
-  constructor(props) {
-    super(props);
+class ErrorBoundary extends React.Component {
+  constructor() {
+    super();
+
     this.state = {
       hasError: false,
       errorMessage: ""
@@ -28,15 +32,28 @@ class ErrorBoundary extends Component {
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         {this.state.hasError ? (
-          <div>
-            Error <button onClick={this.reset}>Ok</button>
-          </div>
+          <ModalLauncher
+            title="Judge me by my size, do you?"
+            resetCharacter={this.reset}
+            showOnRender={true}
+          >
+            <React.Fragment>
+              <div className="modal-content">
+                <p>That is why you fail.</p>
+              </div>
+              <Flex className="modal-footer" jContent="flex-end">
+                <Button className="btn btn-danger" handleClick={this.reset}>
+                  Dissmiss
+                </Button>
+              </Flex>
+            </React.Fragment>
+          </ModalLauncher>
         ) : (
           this.props.children
         )}
-      </div>
+      </React.Fragment>
     );
   }
 }
