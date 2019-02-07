@@ -23,6 +23,10 @@ const GlobalStyle = createGlobalStyle`
     font-family: "Montserrat", sans-serif;
   }
 
+  html, body, #star-wars {
+    height: 100%;
+  }
+
   h1,
   h2,
   h3,

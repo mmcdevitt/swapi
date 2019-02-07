@@ -25,7 +25,7 @@ const Navbar = props => {
       <Container>
         <Flex vAlign="center" jContent="space-between" height="inherit">
           <div className="logo">SWAPI</div>
-          <div>Profile</div>
+          <div>Michael McDevitt</div>
         </Flex>
       </Container>
     </Header>

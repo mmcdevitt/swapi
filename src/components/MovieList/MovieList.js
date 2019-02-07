@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import Flex from "../UI/Flex";
 import SingleMovie from "./SingleMovie";
 
@@ -12,14 +13,26 @@ class MovieList extends React.Component {
   }
 
   render() {
-    const { films } = this.props;
+    const { films, error } = this.props;
 
     return (
       <Flex className="movie-list" jContent="center" fWrap="wrap">
-        {films.length ? this.renderMovies() : <div>nothing here</div>}
+        {films.length ? (
+          this.renderMovies()
+        ) : (
+          <p>{error ? "Error loading movies" : "Please select a character"}</p>
+        )}
       </Flex>
     );
   }
 }
 
-export default MovieList;
+function mapStateToProps(state) {
+  const { error } = state.selectedCharacter;
+
+  return {
+    error
+  };
+}
+
+export default connect(mapStateToProps)(MovieList);
