@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import cs from "classnames";
 
 const FlexWrapper = styled.div`
   display: flex;
@@ -19,7 +20,8 @@ class Flex extends React.Component {
       jContent,
       fWrap,
       direction,
-      height
+      height,
+      className
     } = this.props;
 
     const styles = {
@@ -31,8 +33,10 @@ class Flex extends React.Component {
       height
     };
 
+    const classes = cs(className, "flex-wrapper");
+
     return (
-      <FlexWrapper styles={styles} className="flex-wrapper">
+      <FlexWrapper styles={styles} className={classes}>
         {this.props.children}
       </FlexWrapper>
     );

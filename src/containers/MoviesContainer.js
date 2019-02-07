@@ -1,24 +1,21 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import styled from "styled-components";
 import Loading from "../components/UI/Loading";
-import Container from "../components/UI/Container";
+import MovieList from "../components/MovieList";
+
+const FilmsWrapper = styled.div`
+  padding: 45px 0;
+`;
 
 class MoviesContainer extends Component {
-  renderMovieList() {
-    const { films } = this.props;
-
-    return films.map(film => {
-      return <div key={film.episode_id}>{film.title}</div>;
-    });
-  }
-
   render() {
-    const { loading } = this.props;
+    const { loading, films } = this.props;
 
     return (
-      <div className="films">
-        <Container>{loading ? <Loading /> : this.renderMovieList()}</Container>
-      </div>
+      <FilmsWrapper className="movie-container">
+        {loading ? <Loading /> : <MovieList films={films} />}
+      </FilmsWrapper>
     );
   }
 }

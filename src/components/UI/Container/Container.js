@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import cs from "classnames";
 
 const ContainerWrapper = styled.div`
   width: 100%;
@@ -26,9 +27,13 @@ const ContainerWrapper = styled.div`
   }
 `;
 
-const Container = props => {
+const Container = ({ className, ...props }) => {
+  const classes = cs(className, "container");
+
   return (
-    <ContainerWrapper className="container">{props.children}</ContainerWrapper>
+    <ContainerWrapper className={classes} {...props}>
+      {props.children}
+    </ContainerWrapper>
   );
 };
 
