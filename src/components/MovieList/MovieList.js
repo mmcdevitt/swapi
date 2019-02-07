@@ -22,8 +22,4 @@ class MovieList extends React.Component {
   }
 }
 
-MovieList.defaultProps = {
-  films: []
-};
-
 export default MovieList;

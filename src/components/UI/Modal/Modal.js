@@ -1,5 +1,5 @@
 import React from "react";
-import SVGCross from "../SVGArrow/SVGCross";
+import SVGCross from "../SVG/SVGCross";
 
 import "./Modal.css";
 
