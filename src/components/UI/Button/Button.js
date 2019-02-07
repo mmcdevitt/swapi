@@ -8,8 +8,6 @@ class Button extends React.Component {
     const { large, className, size, left, open } = this.props;
 
     return cs(
-      "multiselect",
-      "dropdown-toggle",
       "btn",
       "btn-default",
       large ? "btn-lg" : null,
