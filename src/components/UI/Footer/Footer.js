@@ -6,6 +6,7 @@ const FooterWrapper = styled.footer`
   background: #333;
   text-align: center;
   color: #fff;
+  margin-top: auto;
 `;
 
 const Footer = props => {
