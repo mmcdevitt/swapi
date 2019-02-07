@@ -1,7 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
+import styled from "styled-components";
 import Flex from "../UI/Flex";
 import SingleMovie from "./SingleMovie";
+
+const Message = styled.p`
+  margin: 0 auto;
+`;
 
 class MovieList extends React.Component {
   renderMovies() {
@@ -16,11 +21,13 @@ class MovieList extends React.Component {
     const { films, error } = this.props;
 
     return (
-      <Flex className="movie-list" jContent="center" fWrap="wrap">
+      <Flex className="movie-list" fWrap="wrap" media="center">
         {films.length ? (
           this.renderMovies()
         ) : (
-          <p>{error ? "Error loading movies" : "Please select a character"}</p>
+          <Message>
+            {error ? "Error loading movies" : "Please select a character"}
+          </Message>
         )}
       </Flex>
     );

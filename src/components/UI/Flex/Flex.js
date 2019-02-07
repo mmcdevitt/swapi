@@ -10,6 +10,10 @@ const FlexWrapper = styled.div`
   flex-wrap: ${props => props.styles.flexWrap};
   flex-direction: ${props => props.styles.flexDirection};
   height: ${props => props.styles.height};
+
+  @media (max-width: 660px) {
+    justify-content: ${props => props.styles.media && props.styles.media};
+  }
 `;
 
 class Flex extends React.Component {
@@ -21,7 +25,8 @@ class Flex extends React.Component {
       fWrap,
       direction,
       height,
-      className
+      className,
+      media
     } = this.props;
 
     const styles = {
@@ -30,7 +35,8 @@ class Flex extends React.Component {
       justifyContent: jContent,
       flexWrap: fWrap,
       flexDirection: direction,
-      height
+      height,
+      media
     };
 
     const classes = cs(className, "flex-wrapper");

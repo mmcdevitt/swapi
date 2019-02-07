@@ -5,6 +5,7 @@ import styled from "styled-components";
 const SingleMovieWrapper = styled.div`
   margin-right: 15px;
   margin-left: 15px;
+  margin-bottom: 30px;
 `;
 
 const MoviePoster = styled.div`
