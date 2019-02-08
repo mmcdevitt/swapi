@@ -5,7 +5,7 @@ import Flex from "../Flex";
 import SVGCross from "../SVG/SVGCross";
 import "./Modal.css";
 
-Modal.setAppElement("#star-wars");
+if (process.env.NODE_ENV !== "test") Modal.setAppElement("#star-wars");
 
 class ModalLauncher extends React.Component {
   constructor() {
