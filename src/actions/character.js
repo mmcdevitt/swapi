@@ -1,4 +1,4 @@
-import SWAPI from "../lib/api";
+import API from "../lib/api";
 
 export const FETCH_CHARACTER_FILMS = "FETCH_CHARACTER_FILMS";
 export const FETCH_CHARACTER_FILMS_SUCCESS = "FETCH_CHARACTER_FILMS_SUCCESS";
@@ -13,8 +13,8 @@ export const selectCharacter = character => {
     });
 
     try {
-      const { data } = await SWAPI.getCharacter(character.url);
-      const films = await SWAPI.getFilms(data.films);
+      const { data } = await API.getCharacter(character.url);
+      const films = await API.getFilms(data.films);
 
       dispatch({
         type: FETCH_CHARACTER_FILMS_SUCCESS,

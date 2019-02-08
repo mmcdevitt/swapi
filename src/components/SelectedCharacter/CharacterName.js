@@ -13,7 +13,11 @@ const CharacterName = props => {
   const { hide } = props;
 
   return (
-    <CharacterNameWrapper className="selected-character-name" hide={hide}>
+    <CharacterNameWrapper
+      className="selected-character-name"
+      hide={hide}
+      id={props.id}
+    >
       <h1>{props.name}</h1>
     </CharacterNameWrapper>
   );

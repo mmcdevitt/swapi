@@ -1,9 +1,9 @@
-import { createStore, applyMiddleware, combineReducers } from "redux";
+import { applyMiddleware, combineReducers } from "redux";
 import logger from "redux-logger";
 import reduxThunk from "redux-thunk";
 import reducerList from "./reducers";
 
-const reducers = combineReducers({
+export const reducers = combineReducers({
   ...reducerList
 });
 
@@ -13,8 +13,4 @@ if (process.env.NODE_ENV === "development") {
   middlewares.push(logger);
 }
 
-const middleware = applyMiddleware(...middlewares);
-
-const store = createStore(reducers, {}, middleware);
-
-export default store;
+export const middleware = applyMiddleware(...middlewares);

@@ -1,68 +1,31 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## SWAPI Code Challenge
 
-## Available Scripts
+### Heroku
 
-In the project directory, you can run:
+https://mcdevitt-swapi.herokuapp.com/
 
-### `npm start`
+### Notes
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+For this challenge, the front-end was built using `React` and `Redux`. The app has 3 containers that are the main connections to the Redux store and are used to pass the state down as props to the main components. Many of the `UI` components are built with pre-made components I've built in the past and most are using `styled-components`. For example, the `Flex` component is a component I've made for other projects.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Since many of the components are using `styled-components`, you'll notice in the inspector, that these components have cryptic class names as a result of the module. I have also added descriptive class names to these components that are not css classes. Mainly, just to be able to identify them in the inspector.
 
-### `npm test`
+There were 2 challenges that I faced while attempting this project:
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Fetch all movies after selecting a character.** Since, making a get request for the character responded with a list of movies in the form of `urls` I had to make another request with `axios` by using `axios.all`. This successfully resolved into a list of movie objects.
+2. **HTTP Error handling for Obi-wan Kenobi.** Error handling was created by using a Higher Order Component that listens for errors in the `componentDidCatch` lifecycle hook. If an error was detected, the HOC would render a modal by using `react-modal`.
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Fork and clone repo
+- cd into directory
+- `npm install`
+- `npm run dev`
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### Libraries Used
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Create-react-app
+- Redux
+- Axios
+- Styled-Components
+- React-modal (for error handling)

@@ -1,21 +1,24 @@
 import axios from "axios";
 
-class SWAPI {
-  async getRequest(endpoint) {
-    return await axios.get(endpoint);
-  }
+const getRequest = async endpoint => {
+  return await axios.get(endpoint);
+};
 
-  async getCharacter(url) {
-    return await this.getRequest(url);
-  }
+const getCharacter = async url => {
+  return await getRequest(url);
+};
 
-  async getFilm(url) {
-    return await this.getRequest(url);
-  }
+const getFilm = async url => {
+  return await getRequest(url);
+};
 
-  async getFilms(data) {
-    return await axios.all(data.map(film => this.getFilm(film)));
-  }
-}
+const getFilms = async data => {
+  return await axios.all(data.map(film => getFilm(film)));
+};
 
-export default new SWAPI();
+export default {
+  getRequest,
+  getCharacter,
+  getFilm,
+  getFilms
+};

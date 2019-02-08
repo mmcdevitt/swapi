@@ -1,8 +1,11 @@
 import React from "react";
 import { Provider } from "react-redux";
-import store from "./reducers/store";
+import { createStore } from "redux";
+import { reducers, middleware } from "./reducers/store";
 
-const RootProvider = ({ children }) => {
+const RootProvider = ({ children, initialState = {} }) => {
+  const store = createStore(reducers, initialState, middleware);
+
   return <Provider store={store}>{children}</Provider>;
 };
 

@@ -31,7 +31,10 @@ class SelectedCharacter extends Component {
             </Flex>
             <Flex jContent="center">{this.props.children}</Flex>
             <Flex shortHand="1 1 auto" vAlign="flex-end" media="center">
-              <CharacterName name={character.name} />
+              <CharacterName
+                name={character.name}
+                id="selected-character-name"
+              />
             </Flex>
           </Flex>
         </Container>

@@ -1,76 +1,74 @@
 import React from "react";
-import Modal from "./Modal";
+import Modal from "react-modal";
+import Button from "../Button";
+import Flex from "../Flex";
+import SVGCross from "../SVG/SVGCross";
+import "./Modal.css";
+
+if (process.env.NODE_ENV !== "test") Modal.setAppElement("#star-wars");
 
 class ModalLauncher extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      showModal: false
+      modalIsOpen: false
     };
-
-    this.toggleModal = this.toggleModal.bind(this);
   }
 
   componentDidMount() {
-    if (this.props.showOnRender) {
+    if (this.props.openOnMount) {
       this.setState({
-        showModal: true
+        modalIsOpen: true
       });
     }
   }
 
-  toggleModal() {
-    if (this.props.resetCharacter !== null) {
-      this.props.resetCharacter();
-    }
+  openModal = () => {
+    this.setState({ modalIsOpen: true });
+  };
 
-    this.setState({
-      showModal: !this.state.showModal
-    });
-  }
-
-  renderElement() {
-    /*
-      If a custom element is passed in from props, use custom element to fire the Modal.
-      Else, use the default button
-    */
-    const { customElement, showOnRender } = this.props;
-
-    if (!showOnRender) {
-      return customElement ? (
-        customElement(this.toggleModal)
-      ) : (
-        <button primary onClick={this.toggleModal}>
-          Click
-        </button>
-      );
-    }
-  }
-
-  renderModal() {
-    const { showModal } = this.state;
-
-    // This allows us to pass props to children components through props.children
-    const childrenWithProps = React.Children.map(this.props.children, child => {
-      return React.cloneElement(child, { toggleModal: this.toggleModal });
-    });
-
-    if (showModal) {
-      return (
-        <Modal title={this.props.title} onCloseRequest={this.toggleModal}>
-          {childrenWithProps}
-        </Modal>
-      );
-    }
-  }
+  closeModal = () => {
+    this.props.resetErrorBoundary();
+    this.setState({ modalIsOpen: false });
+  };
 
   render() {
+    const customStyles = {
+      content: {
+        top: "50%",
+        left: "50%",
+        right: "auto",
+        bottom: "auto",
+        marginRight: "-50%",
+        transform: "translate(-50%, -50%)",
+        padding: "0",
+        width: "500px"
+      }
+    };
+
     return (
-      <React.Fragment>
-        {this.renderElement()}
-        {this.renderModal()}
-      </React.Fragment>
+      <Modal
+        isOpen={this.state.modalIsOpen}
+        onRequestClose={this.closeModal}
+        style={customStyles}
+        contentLabel="Judge me by my size, do you?"
+      >
+        <div className="modal-header">
+          <div className="modal-title">Error Loading Movies</div>
+          <div className="modal-close" onClick={this.closeModal}>
+            <SVGCross />
+          </div>
+        </div>
+        <div className="modal-content">
+          <p>There was an error with your request...</p>
+        </div>
+        <Flex className="modal-footer" jContent="flex-end">
+          <Button className="btn btn-danger" handleClick={this.closeModal}>
+            Dissmiss
+          </Button>
+        </Flex>
+      </Modal>
     );
   }
 }
