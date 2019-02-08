@@ -21,7 +21,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        collection: action.payload
+        collection: [...state.collection, ...action.payload]
       };
     case LOAD_CHARACTERS_FAILED:
       return {

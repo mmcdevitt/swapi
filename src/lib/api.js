@@ -1,5 +1,5 @@
 import axios from "axios";
-
+// refactor
 class SWAPI {
   async getRequest(endpoint) {
     return await axios.get(endpoint);
