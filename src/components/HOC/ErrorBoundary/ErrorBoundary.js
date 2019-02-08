@@ -1,13 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import Modal from "react-modal";
 import ModalLauncher from "../../UI/Modal/ModalLauncher";
-import Button from "../../UI/Button";
-import Flex from "../../UI/Flex";
-import SVGCross from "../../UI/SVG/SVGCross";
 import * as actions from "../../../actions/character";
-
-Modal.setAppElement("#star-wars");
 
 class ErrorBoundary extends React.Component {
   constructor() {

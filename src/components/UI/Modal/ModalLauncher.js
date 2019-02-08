@@ -50,7 +50,6 @@ class ModalLauncher extends React.Component {
     return (
       <Modal
         isOpen={this.state.modalIsOpen}
-        onAfterOpen={this.afterOpenModal}
         onRequestClose={this.closeModal}
         style={customStyles}
         contentLabel="Judge me by my size, do you?"
